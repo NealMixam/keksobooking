@@ -1,12 +1,8 @@
 import { getRandomInteger, getRandomNumber } from './utils';
 
-const OFFER_COUNT = 10;
-
-let offers = [];
-
 const titles = ['Стандартные апартаменты', 'Уютный модерн', 'Классика в новом прочтении', 'Только роскошь', 'Евро-стандарт', 'Хай-тек'];
 
-const TYPE_FLAT = ['palace', 'flat', 'house', 'bungalow'];
+const TYPE_FLAT = ['Дворец', 'Квартира', 'Дом', 'Бунгало'];
 
 const CHECK_TYPE = ['12:00', '13:00', '14:00'];
 
@@ -18,10 +14,10 @@ const PHOTOS = ['http://o0.github.io/assets/images/tokyo/hotel1.jpg', 'http://o0
 
 const createFeatures = () => {
   const features = [];
-  for (let i = 0; i < getRandomInteger(0, 5); i++) {
+  for (let i = 0; i < getRandomInteger(1, 6); i++) {
     features.push(FEATURES_TYPE[i]);
-    return features;
   }
+  return features;
 };
 
 const createPhotos = () => {
@@ -32,7 +28,8 @@ const createPhotos = () => {
   return photos;
 };
 
-const createOffers = () => {
+const createOffers = (OFFER_COUNT) => {
+  const offers = [];
   for (let i = 0; i < OFFER_COUNT; i++) {
     offers.push({
       author: {
@@ -56,8 +53,8 @@ const createOffers = () => {
         y: getRandomNumber(139.70000, 139.80000, 5),
       },
     })
-  }};
+  }
+  return offers;
+};
 
-createOffers();
-
-export {offers};
+export {createOffers};
