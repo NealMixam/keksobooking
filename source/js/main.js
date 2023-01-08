@@ -1,2 +1,2 @@
-import './offer';
+// import './offer';
 import './form';
