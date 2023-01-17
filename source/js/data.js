@@ -37,7 +37,8 @@ const createOffers = (OFFER_COUNT) => {
       },
       offer: {
         title: titles[getRandomInteger(0, 5)],
-        address: '{location.x}, {location.y}',
+        // address: `${location.lat}, ${location.lng}`,
+        address: '{{location.lat}}, {{location.lng}}',
         price: getRandomInteger(0, 1000000),
         type: TYPE_FLAT[getRandomInteger(0, 3)],
         rooms: getRandomInteger(1, 3),
@@ -49,8 +50,8 @@ const createOffers = (OFFER_COUNT) => {
         photos: createPhotos(),
       },
       location: {
-        x: getRandomNumber(35.65000, 35.70000, 5),
-        y: getRandomNumber(139.70000, 139.80000, 5),
+        lat: getRandomNumber(35.65000, 35.70000, 5),
+        lng: getRandomNumber(139.70000, 139.80000, 5),
       },
     })
   }
