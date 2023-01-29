@@ -1,5 +1,4 @@
 import { isEscEvent } from './utils';
-// import { addressInput } from './map';
 const bodyContainer = document.querySelector('body');
 const form = document.querySelector('.ad-form');
 const inputType = form.querySelector('#type');
@@ -8,7 +7,6 @@ const timeIn = form.querySelector('#timein');
 const timeOut = form.querySelector('#timeout');
 const inputRoomsCount = form.querySelector('#room_number');
 const inputGuestsCount = form.querySelector('#capacity');
-// const resetButton = form.querySelector('.ad-form__reset');
 const successMessageTemplate = document.querySelector('#success').content.querySelector('.success');
 const successMessage = successMessageTemplate.cloneNode(true);
 const errorMessageTemplate = document.querySelector('#error').content.querySelector('.error');

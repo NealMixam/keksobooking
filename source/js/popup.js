@@ -34,7 +34,7 @@ const createPopup = (
   const photosContainer = offerElement.querySelector('.popup__photos');
   const photoElement = photosContainer.querySelector('.popup__photo');
 
-  for (let i = 0; i < photos.length - 1; i++) {
+  for (let i = 0; i < photos.length; i++) {
     // eslint-disable-next-line no-undef
     photoElement.src = photos[i];
     const photoNewElement = photoElement.cloneNode(true);

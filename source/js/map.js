@@ -1,13 +1,12 @@
 /* eslint-disable no-unused-vars */
 import { form } from './form';
+import '../../leaflet/leaflet/leaflet';
+import { createPopup } from '../js/popup';
+import { showErrorLoadMessage } from './utils';
 let formElements = form.querySelectorAll('fieldset');
 const addressInput = form.querySelector('#address');
 const filtersForm = document.querySelector('.map__filters');
 let filtersFormElements = filtersForm.children;
-import '../../leaflet/leaflet/leaflet';
-import { createOffers } from '../js/data';
-import {createPopup} from '../js/popup';
-import { showErrorLoadMessage } from './utils';
 
 const activeState = () => {
   window.addEventListener('load', () => {
@@ -84,8 +83,26 @@ marker.on('moveend', (evt) => {
 // // eslint-disable-next-line no-console
 // console.log(offers);
 
+const getOfferRank = (offer) => {
+  const houseTypeInput = document.querySelector('#housing-type');
+
+  let rank = 0;
+
+  if (offer.offer.type === houseTypeInput) {
+    rank += 2;
+  }
+
+  return rank;
+};
+
+const compareOffers = (offerA) => {
+  const rankA = getOfferRank(offerA);
+  return rankA;
+};
+
 const renderCards = (offers) => {
-  offers.forEach((card) => {
+
+  offers.slice(0, 10).sort(compareOffers).forEach((card) => {
     const {author, offer, location} = card;
     let lat = location.lat;
     let lng = location.lng;
